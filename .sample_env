@@ -1,0 +1,2 @@
+API_KEY=openai-api-key
+MODEL=openai-model e.g gpt-3.5-turbo
