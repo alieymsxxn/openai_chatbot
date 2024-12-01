@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "openai-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["Mohsin Ali <mohsinalisep@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^3.1.0"
+python-decouple = "^3.8"
+openai = "^1.55.3"
+groq = "^0.13.0"
+flask-wtf = "^1.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
