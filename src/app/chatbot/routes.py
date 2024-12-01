@@ -41,7 +41,7 @@ def get_prompt_response(prompt_index):
     try:
         response_data = bot.get_response(prompt_index)
         response = {
-            'message': "Response successfully generated.",
+            'message': 'Response successfully generated.',
             'response': response_data
         }
         return jsonify(response), 200
@@ -65,7 +65,7 @@ def update_prompt(prompt_index):
             update_data = bot.update_prompt(prompt_index=prompt_index,
                                             new_prompt=form.prompt.data)
             response = {
-                'message': "Update has been successfully.",
+                'message': 'Update has been successful.',
                 'response': update_data
             }
             return jsonify(response), 200
@@ -87,7 +87,7 @@ def delete_prompt(prompt_index):
     try:
         deletion_data = bot.delete_prompt(prompt_index)
         response = {
-            'message': 'Prompt has been deleteed',
+            'message': 'Prompt has been deleted',
             'response': deletion_data
         }
         return jsonify(response), 200

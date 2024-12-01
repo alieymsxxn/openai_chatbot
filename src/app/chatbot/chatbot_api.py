@@ -103,7 +103,7 @@ class ChatGPTBotAPI:
             )
             response = {
                 'prompt': prompt,
-                'reponse': response.choices[0].message.content
+                'response': response.choices[0].message.content
             }
             return response
         except OpenAIError as e:
@@ -131,7 +131,7 @@ class ChatGPTBotAPI:
         initial = self.prompts[prompt_index]
         self.prompts[prompt_index] = new_prompt
         response = {
-            'inital': initial,
+            'initial': initial,
             'final': new_prompt
         }
         return response
