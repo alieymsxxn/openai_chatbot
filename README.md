@@ -3,7 +3,7 @@
 This README provides instructions for setting up a development server for the Flask-based OpenAI chatbot.
 
 ## Prerequisites
-- Ensure you have Python and Poetry installed on your machine.
+- Ensure you have Python 3.11.2 and Poetry installed on your machine.
 
 ## Setup Instructions
 
