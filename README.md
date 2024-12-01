@@ -4,15 +4,19 @@ This README provides instructions for setting up a development server for the Fl
 
 ## Prerequisites
 - Ensure you have Python and Poetry installed on your machine.
+# Start of Selection
 
 ## Setup Instructions
+
+1. **Set up the environment variables:**
+   Create a `.env` file in the root directory of your project and add your OpenAI API key and model. You can use the provided `.sample_env` as a reference.
 
 2. **Install the required dependencies:**
    ```bash
    poetry install
    ```
 
-3. **Alternatively, run the Flask development server:**
+3. **Run the Flask development server:**
    Set the `FLASK_APP` environment variable and run:
    ```bash
    FLASK_APP=src/run.py poetry run flask run
