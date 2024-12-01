@@ -28,6 +28,17 @@ class ChatGPTBotAPI:
             raise ValueError('Prompt must be a string.')
         self.__prompts.append(value)
 
+    def get_available_prompt_indices(self):
+        '''Retrieve the available indices of stored prompts.
+
+        This method returns a list of indices corresponding to the stored prompts,
+        which can be useful for understanding which prompts are available for interaction.
+
+        Returns:
+            list: A list of integers representing the indices of the stored prompts.
+        '''
+        return list(range(len(self.prompts)))
+
     def initialize_gpt3(self):
         '''Initialize the OpenAI API client using the API key from the environment configuration.
 
@@ -69,6 +80,8 @@ class ChatGPTBotAPI:
         Raises:
             ValueError: If the provided prompt is not a string.
         '''
+        if not isinstance(prompt, str):
+            raise ValueError('Prompt must be a string.')
         self.prompts = prompt
         response = {
             'prompt': prompt,
@@ -103,6 +116,7 @@ class ChatGPTBotAPI:
             )
             response = {
                 'prompt': prompt,
+                'prompt_index': prompt_index,
                 'response': response.choices[0].message.content
             }
             return response
@@ -128,11 +142,14 @@ class ChatGPTBotAPI:
         Raises:
             IndexError: If the prompt index is out of range.
         '''
+        if not isinstance(new_prompt, str):
+            raise ValueError('New prompt must be a string.')
         initial = self.prompts[prompt_index]
         self.prompts[prompt_index] = new_prompt
         response = {
-            'initial': initial,
-            'final': new_prompt
+            'prompt_index': prompt_index,
+            'initial_prompt': initial,
+            'final_prompt': new_prompt
         }
         return response
 

@@ -6,6 +6,13 @@ from .forms import CreateUpdatePromptForm
 bot = ChatGPTBotAPI()
 bot.initialize_gpt3()
 
+def handle_index_error(error):
+    available_indices = bot.get_available_prompt_indices()
+    response = {
+        'error': str(error),
+        'available_indices': available_indices
+    }
+    return jsonify(response), 400
 
 @blueprint.route('/prompts', methods=['POST'])
 def add_prompt():
@@ -27,7 +34,6 @@ def add_prompt():
         return jsonify(response), 201
     return jsonify({'error': form.errors}), 400
 
-
 @blueprint.route('/prompts/<int:prompt_index>/response', methods=['GET'])
 def get_prompt_response(prompt_index):
     '''Retrieve the response for a specific prompt by its index.
@@ -46,8 +52,7 @@ def get_prompt_response(prompt_index):
         }
         return jsonify(response), 200
     except IndexError as e:
-        return jsonify({'error': str(e)}), 400
-
+        return handle_index_error(e)
 
 @blueprint.route('/prompts/<int:prompt_index>', methods=['PUT'])
 def update_prompt(prompt_index):
@@ -65,14 +70,13 @@ def update_prompt(prompt_index):
             update_data = bot.update_prompt(prompt_index=prompt_index,
                                             new_prompt=form.prompt.data)
             response = {
-                'message': 'Update has been successful.',
+                'message': 'Update successful.',
                 'response': update_data
             }
             return jsonify(response), 200
         except IndexError as e:
-            return jsonify({'error': str(e)}), 400
+            return handle_index_error(e)
     return jsonify({'error': form.errors}), 400
-
 
 @blueprint.route('/prompts/<int:prompt_index>', methods=['DELETE'])
 def delete_prompt(prompt_index):
@@ -87,9 +91,9 @@ def delete_prompt(prompt_index):
     try:
         deletion_data = bot.delete_prompt(prompt_index)
         response = {
-            'message': 'Prompt has been deleted',
+            'message': 'Prompt deleted successfully.',
             'response': deletion_data
         }
         return jsonify(response), 200
     except IndexError as e:
-        return jsonify({'error': str(e)}), 400
+        return handle_index_error(e)
