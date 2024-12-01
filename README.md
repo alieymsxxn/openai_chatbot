@@ -4,9 +4,10 @@ This README provides instructions for setting up a development server for the Fl
 
 ## Prerequisites
 - Ensure you have Python and Poetry installed on your machine.
-# Start of Selection
 
 ## Setup Instructions
+
+Postman collection is available in the root directory as `postman_collection.json`.
 
 1. **Set up the environment variables:**
    Create a `.env` file in the root directory of your project and add your OpenAI API key and model. You can use the provided `.sample_env` as a reference.
@@ -64,7 +65,8 @@ This document provides an overview of the endpoints available in the ChatGPT API
       "message": "Response successfully generated.",
       "response": {
           "prompt": "What is the capital of Australia?",
-          "reponse": "The capital of Australia is Canberra."
+          "prompt_index": 0,
+          "response": "The capital of Australia is Canberra."
       }
   }
   ```
@@ -84,10 +86,11 @@ This document provides an overview of the endpoints available in the ChatGPT API
 - **Response**: 
   ```json
   {
-      "message": "Update has been successfully.",
+      "message": "Update successful.",
       "response": {
-          "final": "What is the capital of Latvia?",
-          "inital": "What is the capital of Australia?"
+          "final_prompt": "What is the capital of Ukraine?",
+          "initial_prompt": "What is the capital of Australia?",
+          "prompt_index": 0
       }
   }
   ```
@@ -103,10 +106,10 @@ This document provides an overview of the endpoints available in the ChatGPT API
 - **Response**: 
   ```json
   {
-      "message": "Prompt has been deleted",
+      "message": "Prompt deleted successfully.",
       "response": {
-          "deleted_prompt": "What is the capital of Latvia?",
-          "deleted_prompt_index": 1
+          "deleted_prompt": "What is the capital of Ukraine?",
+          "deleted_prompt_index": 0
       }
   }
   ```
