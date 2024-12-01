@@ -24,7 +24,7 @@ def add_prompt():
             'message': 'Prompt added successfully.',
             'response': prompt_data
         }
-        return jsonify(**response), 201
+        return jsonify(response), 201
     return jsonify({'error': form.errors}), 400
 
 
@@ -44,7 +44,7 @@ def get_prompt_response(prompt_index):
             'message': "Response successfully generated.",
             'response': response_data
         }
-        return jsonify(**response), 200
+        return jsonify(response), 200
     except IndexError as e:
         return jsonify({'error': str(e)}), 400
 
