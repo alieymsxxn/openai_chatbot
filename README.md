@@ -3,7 +3,7 @@
 This README provides instructions for setting up a development server for the Flask-based OpenAI chatbot.
 
 ## Prerequisites
-- Ensure you have Python 3.11.2 and Poetry installed on your machine.
+- Ensure you have Python and Poetry installed on your machine.
 
 ## Setup Instructions
 
@@ -45,8 +45,8 @@ This document provides an overview of the endpoints available in the ChatGPT API
   {
       "message": "Prompt added successfully.",
       "response": {
-          "prompt": "What is the capital of Latvia?",
-          "prompt_index": 5
+          "prompt": "What is the capital of Australia?",
+          "prompt_index": 0
       }
   }
   ```
@@ -77,9 +77,9 @@ This document provides an overview of the endpoints available in the ChatGPT API
 - **Endpoint**: `PUT /openai/prompts/{id}`
 - **Description**: Updates an existing prompt.
 - **Request Headers**:
-  - `Content-Type`: `application/x-www-form-urlencoded`
+  - `Content-Type`: `application/json`
 - **Request Body**:
-  - `prompt`: The new prompt to replace the existing one (e.g., "What is the capital of Australia?").
+  - `prompt`: The new prompt to replace the existing one (e.g., "What is the capital of Latvia?").
 - **Request Parameters**:
   - `id`: The ID of the prompt to be updated (e.g., `0`).
 - **Response**: 
@@ -87,7 +87,7 @@ This document provides an overview of the endpoints available in the ChatGPT API
   {
       "message": "Update has been successfully.",
       "response": {
-          "final": "What is the capital of Australia?",
+          "final": "What is the capital of Latvia?",
           "inital": "What is the capital of Australia?"
       }
   }
@@ -100,7 +100,7 @@ This document provides an overview of the endpoints available in the ChatGPT API
 - **Endpoint**: `DELETE /openai/prompts/{id}`
 - **Description**: Deletes a specific prompt by its ID.
 - **Request Parameters**:
-  - `id`: The ID of the prompt to be deleted (e.g., `1`).
+  - `id`: The ID of the prompt to be deleted (e.g., `0`).
 - **Response**: 
   ```json
   {
