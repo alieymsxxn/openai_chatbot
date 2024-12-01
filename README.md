@@ -7,11 +7,6 @@ This README provides instructions for setting up a development server for the Fl
 
 ## Setup Instructions
 
-1. **Initialize the Poetry project:**
-   ```bash
-   poetry init
-   ```
-
 2. **Install the required dependencies:**
    ```bash
    poetry install
