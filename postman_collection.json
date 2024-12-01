@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "7f5772bc-5bc1-4ed6-895e-46baf3cb46b1",
+		"name": "ChatGPT API",
+		"description": "API for interacting with ChatGPT, allowing users to manage prompts and get responses.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13802589",
+		"_collection_link": "https://warped-desert-980130.postman.co/workspace/4a46042d-0a5b-4840-8c7c-499daad5c349/collection/13802589-7f5772bc-5bc1-4ed6-895e-46baf3cb46b1?action=share&source=collection_link&creator=13802589"
+	},
+	"item": [
+		{
+			"name": "Add Prompt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "prompt",
+							"value": "What is the capital of Latvia?",
+							"description": "The prompt to be added."
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/openai/prompts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"openai",
+						"prompts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prompt Response",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/openai/prompts/0/response",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"openai",
+						"prompts",
+						"0",
+						"response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Prompt",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prompt",
+							"value": "What is the capital of Australia?",
+							"description": "The new prompt to replace the existing one."
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/openai/prompts/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"openai",
+						"prompts",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Prompt",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/openai/prompts/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"openai",
+						"prompts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
